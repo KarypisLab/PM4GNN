@@ -10,7 +10,7 @@ optimizations. Many of these optimizations were developed while working on
 
 You can download MP4GNN by simply cloning it using the command:
 ```
-git clone https://github.com/KarypisLab/MP4GNN.git
+git clone git@github.com:KarypisLab/PM4GNN.git
 ```
 
 ## Building the MP4GNN library
@@ -90,6 +90,25 @@ and building METIS.
 
 
 ## Copyright & License Notice
-Copyright 1998-2023, Regents of the University of Minnesota
+Copyright 1998-2023, Regents of the University of Minnesota and is licensed under the 
+Apache License, Version 2.0. 
 
 
+## Cite 
+
+There are several papers describing ParMetis' underlying algorithms
+[Ref1](https://dl.acm.org/doi/abs/10.1145/369028.369103)
+[Ref2](https://www.sciencedirect.com/science/article/abs/pii/S0743731597914040)
+[Ref3](https://www.sciencedirect.com/science/article/abs/pii/S0743731597914039)
+[Ref4](https://link.springer.com/chapter/10.1007/3-540-44520-X_39)
+
+For citing this particular repository, use the following:
+
+```
+@misc{pm4gnn23,
+  author = {George Karypis},
+  title = {PM4GNN -- Parallel Graph Partitioning for Distributed GNNs},
+  howpublished = "\url{https://github.com/KarypisLab/PM4GNN/}",
+  year = {2023}
+}
+```
