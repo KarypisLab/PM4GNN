@@ -48,12 +48,6 @@ void ParallelReMapGraph(ctrl_t *, graph_t *);
 void ParallelTotalVReMap(ctrl_t *, idx_t *, idx_t *, idx_t, idx_t);
 idx_t SimilarTpwgts(real_t *, idx_t, idx_t, idx_t);
 
-/* move.c */
-graph_t *MoveGraph(ctrl_t *, graph_t *);
-void CheckMGraph(ctrl_t *, graph_t *); 
-void ProjectInfoBack(ctrl_t *, graph_t *, idx_t *, idx_t *);
-void FindVtxPerm(ctrl_t *, graph_t *, idx_t *);
-
 /* wspace.c */
 void AllocateWSpace(ctrl_t *ctrl, size_t nwords);
 void AllocateRefinementWorkSpace(ctrl_t *ctrl, idx_t nbrpoolsize);
@@ -66,56 +60,8 @@ rkv_t *rkvwspacemalloc(ctrl_t *ctrl, size_t n);
 void cnbrpoolReset(ctrl_t *ctrl);
 idx_t cnbrpoolGetNext(ctrl_t *ctrl, idx_t nnbrs);
 
-
-/* ametis.c */
-void Adaptive_Partition(ctrl_t *, graph_t *);
-
-/* rmetis.c */
-
-
-/* wave.c */
-real_t WavefrontDiffusion(ctrl_t *, graph_t *, idx_t *);
-
-/* balancemylink.c */
-idx_t BalanceMyLink(ctrl_t *, graph_t *, idx_t *, idx_t, idx_t, real_t *, 
-          real_t, real_t *, real_t *, real_t);
-
-/* redomylink.c */
-void RedoMyLink(ctrl_t *, graph_t *, idx_t *, idx_t, idx_t, real_t *, real_t *, real_t *);
-
-
-/* selectq.c */
-void Mc_DynamicSelectQueue(ctrl_t *ctrl, idx_t nqueues, idx_t ncon, idx_t subdomain1,
-         idx_t subdomain2, idx_t *currentq, real_t *flows, idx_t *from, idx_t *qnum,
-         idx_t minval, real_t avgvwgt, real_t maxdiff);
-idx_t Mc_HashVwgts(ctrl_t *ctrl, idx_t ncon, real_t *nvwgt);
-idx_t Mc_HashVRank(idx_t ncon, idx_t *vwgt);
-
-
-/* csrmatch.c */
-void CSR_Match_SHEM(matrix_t *, idx_t *, idx_t *, idx_t *, idx_t);
-
-/* serial.c */
-void Mc_ComputeSerialPartitionParams(ctrl_t *ctrl, graph_t *, idx_t);
-void Mc_SerialKWayAdaptRefine(ctrl_t *ctrl, graph_t *, idx_t, idx_t *, real_t *, idx_t);
-idx_t AreAllHVwgtsBelow(idx_t, real_t, real_t *, real_t, real_t *, real_t *);
-void ComputeHKWayLoadImbalance(idx_t, idx_t, real_t *, real_t *);
-void SerialRemap(ctrl_t *ctrl, graph_t *, idx_t, idx_t *, idx_t *, idx_t *, real_t *);
-int SSMIncKeyCmp(const void *, const void *);
-void Mc_Serial_FM_2WayRefine(ctrl_t *ctrl, graph_t *, real_t *, idx_t);
-void Serial_SelectQueue(idx_t, real_t *, real_t *, idx_t *, idx_t *, rpq_t **[2]);
-idx_t Serial_BetterBalance(idx_t, real_t *, real_t *, real_t *, real_t *);
-real_t Serial_Compute2WayHLoadImbalance(idx_t, real_t *, real_t *);
-void Mc_Serial_Balance2Way(ctrl_t *ctrl, graph_t *, real_t *, real_t);
-void Mc_Serial_Init2WayBalance(ctrl_t *ctrl, graph_t *, real_t *);
-idx_t Serial_SelectQueueOneWay(idx_t, real_t *, real_t *, idx_t, rpq_t **[2]);
-void Mc_Serial_Compute2WayPartitionParams(ctrl_t *ctrl, graph_t *);
-idx_t Serial_AreAnyVwgtsBelow(idx_t, real_t, real_t *, real_t, real_t *, real_t *);
-idx_t ComputeSerialEdgeCut(graph_t *graph);
-
-
-
 /* stat.c */
+idx_t ComputeSerialEdgeCut(graph_t *graph);
 void ComputeSerialBalance(ctrl_t *, graph_t *, idx_t *, real_t *);
 void ComputeParallelBalance(ctrl_t *, graph_t *, idx_t *, real_t *);
 void Mc_PrintThrottleMatrix(ctrl_t *, graph_t *, real_t *);
@@ -185,28 +131,10 @@ void FreeInitialGraphAndRemap(graph_t **graph);
 void graph_WriteToDisk(ctrl_t *ctrl, graph_t *graph);
 void graph_ReadFromDisk(ctrl_t *ctrl, graph_t *graph);
 
-/* renumber.c */
-void ChangeNumbering(idx_t *, idx_t *, idx_t *, idx_t *, idx_t, idx_t, idx_t);
-void ChangeNumberingMesh(idx_t *elmdist, idx_t *eptr, idx_t *eind,
-                         idx_t *xadj, idx_t *adjncy, idx_t *part,
-			 idx_t npes, idx_t mype, idx_t from);
-
 /* timer.c */
 void InitTimers(ctrl_t *);
 void PrintTimingInfo(ctrl_t *);
 void PrintTimer(ctrl_t *, timer, char *);
-
-
-/* parmetis.c */
-void ChangeToFortranNumbering(idx_t *, idx_t *, idx_t *, idx_t, idx_t);
-
-
-/* msetup.c */
-mesh_t *SetUpMesh(idx_t *etype, idx_t *ncon, idx_t *elmdist, idx_t *elements,
-      idx_t *elmwgt, idx_t *wgtflag, MPI_Comm *comm);
-mesh_t *CreateMesh(void);
-void InitMesh(mesh_t *mesh);
-
 
 /* gkmpi.c */
 int gkMPI_Comm_size(MPI_Comm comm, idx_t *size);
@@ -256,6 +184,5 @@ int gkMPI_Comm_split(MPI_Comm comm, idx_t color, idx_t key,
         MPI_Comm *newcomm);
 int gkMPI_Comm_free(MPI_Comm *comm);
 int gkMPI_Finalize();
-
 
 

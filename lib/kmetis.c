@@ -410,7 +410,8 @@ void PartitionSmallGraph(ctrl_t *ctrl, graph_t *graph)
 
 
 /*************************************************************************/
-/*! This function assembles the graph into a single processor. */
+/*! This function assembles the graph into a single processor. 
+ */
 /*************************************************************************/
 graph_t *AssembleGraph(ctrl_t *ctrl, graph_t *graph)
 {

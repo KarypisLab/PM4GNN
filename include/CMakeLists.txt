@@ -1,1 +1,1 @@
-install(FILES parmetis.h DESTINATION include)
+install(FILES pm4gnn.h DESTINATION include)
