@@ -1,0 +1,57 @@
+------------------------------------------------------------------------------
+Building MP4GNN requires CMake 2.8, found at http://www.cmake.org/, as well as
+GNU make. Assumming CMake and GNU make are installed, two commands should
+suffice to build MP4GNN:
+
+     $ make config
+     $ make
+
+
+Configuration
+-------------
+MP4GNN is primarily configured by passing options to make config. For
+example:
+
+     $ make config shared=1 
+
+would configure MP4GNN to be built as a shared library.
+
+Common configuration options are:
+  cc=[compiler]   - The C compiler to use [default is mpicc]
+  cxx=[compiler]  - The C++ compiler to use [default is mpicxx]
+  shared=1        - Build a shared library instead of a static one 
+                    [off by default]
+  prefix=[PATH]   - Set the installation prefix [/usr/local/ by default]
+
+Advanced debugging related options:
+  gdb=1       - Build with support for GDB [off by default]
+  debug=1     - Enable debugging support [off by default]
+  assert=1    - Enable asserts [off by default]
+  assert2=1   - Enable very expensive asserts [off by default]
+
+Installation
+------------
+To install MP4GNN, run
+
+    $ make install
+
+The default installation prefix is /usr/local. To pick an installation 
+prefix for MP4GNN pass prefix=[path] to make config. For example,
+
+    $ make config prefix=~/myroot/
+
+will cause MP4GNN to be installed in ~/myroot/ when make install is run.
+
+
+Other make commands
+-------------------
+   $ make uninstall 
+          Removes all files installed by 'make install'.
+   
+   $ make clean 
+          Removes all object files but retains the configuration options.
+   
+   $ make distclean 
+          Performs clean and completely removes the build directory.
+
+------------------------------------------------------------------------------
