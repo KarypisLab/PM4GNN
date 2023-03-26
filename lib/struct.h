@@ -135,22 +135,15 @@ typedef struct graph_t {
   ckrinfo_t *ckrinfo;
 
 
-  /* Node refinement information */
-  idx_t nsep;  			/* The number of vertices in the separator */
-  NRInfoType *nrinfo;
-  idx_t *sepind;		/* The indices of the vertices in the separator */
-
   /* Vertex/edge metadata information use by DistDGL */
   size_t emdata_size, vmdata_size;
   idx_t *vmptr, *emptr;
   char *vmdata, *emdata;
   idx_t *vtype;
 
-
   /* Various fields for out-of-core processing */
   int gID;
   int ondisk;
-
 
   idx_t lmincut, mincut;
 
@@ -181,10 +174,6 @@ typedef struct ctrl_t {
   idx_t mtype;                  /*!< The matching type */
   idx_t ipart;			/*!< The initial partitioning type */
   idx_t rtype;                  /*!< The refinement type */
-  idx_t p_nseps;                /*!< The number of separators to compute at each 
-                                   parallel bisection */
-  idx_t s_nseps;                /* The number of separators to compute at each 
-                                   serial bisection */
   real_t ubfrac;                /* The max/avg fraction for separator bisections */
   idx_t seed;			/* Random number seed */
   idx_t sync;			/* Random number seed */
@@ -195,10 +184,6 @@ typedef struct ctrl_t {
   idx_t dropedges;
   idx_t twohop;
   idx_t fast;
-
-
-  idx_t partType;
-  idx_t ps_relation;
 
   real_t redist_factor;
   real_t redist_base;

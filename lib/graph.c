@@ -115,7 +115,7 @@ void InitGraph(graph_t *graph)
 {
   memset(graph, 0, sizeof(graph_t));
 
-  graph->gnvtxs = graph->nvtxs = graph->nedges = graph->nsep = -1;
+  graph->gnvtxs = graph->nvtxs = graph->nedges = -1;
   graph->nnbrs = graph->nrecv = graph->nsend = graph->nlocal = -1;
   graph->xadj = graph->vwgt = graph->adjncy = graph->adjwgt = NULL;
   graph->nvwgt = NULL;
@@ -135,9 +135,6 @@ void InitGraph(graph_t *graph)
   graph->where = graph->lpwgts = graph->gpwgts = NULL;
   graph->lnpwgts = graph->gnpwgts = NULL;
   graph->ckrinfo = NULL;
-
-  graph->nrinfo  = NULL;
-  graph->sepind  = NULL;
 
   graph->coarser = graph->finer = NULL;
 
@@ -209,8 +206,6 @@ void FreeNonGraphFields(graph_t *graph)
       (void **)&graph->lnpwgts, 
       (void **)&graph->gnpwgts, 
       (void **)&graph->ckrinfo, 
-      (void **)&graph->nrinfo, 
-      (void **)&graph->sepind,
 
       LTERM);
 }
@@ -243,8 +238,6 @@ void FreeNonGraphNonSetupFields(graph_t *graph)
       (void **)&graph->lnpwgts, 
       (void **)&graph->gnpwgts, 
       (void **)&graph->ckrinfo, 
-      (void **)&graph->nrinfo, 
-      (void **)&graph->sepind,
 
       LTERM);
 }
