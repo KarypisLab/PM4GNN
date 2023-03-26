@@ -97,10 +97,10 @@ Apache License, Version 2.0.
 ## Cite 
 
 There are several papers describing ParMetis' underlying algorithms
-[Ref1](https://dl.acm.org/doi/abs/10.1145/369028.369103)
-[Ref2](https://www.sciencedirect.com/science/article/abs/pii/S0743731597914040)
-[Ref3](https://www.sciencedirect.com/science/article/abs/pii/S0743731597914039)
-[Ref4](https://link.springer.com/chapter/10.1007/3-540-44520-X_39)
+[[1]](https://dl.acm.org/doi/abs/10.1145/369028.369103)
+[[2]](https://www.sciencedirect.com/science/article/abs/pii/S0743731597914040)
+[[3]](https://www.sciencedirect.com/science/article/abs/pii/S0743731597914039)
+[[4]](https://link.springer.com/chapter/10.1007/3-540-44520-X_39)
 
 For citing this particular repository, use the following:
 
